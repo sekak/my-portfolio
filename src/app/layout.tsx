@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navbar";
+import { ThemeProvider } from 'next-themes'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+//IBM Plex Mono
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -23,11 +22,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${ibmPlexMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider>
+          <Navbar />
+          <div className="relative">
+            <div className="-z-1 absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-blue-900/20 blur-[100px]"/>
+            <div className="-z-1 absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-blue-900/20 blur-[100px]"/>
+            <div className="p-2 desktop:max-w-[1280px] laptop:max-w-[1024px] tablet:max-w-[768px] mobile:max-w-[375px] mx-auto">
+              {children}
+            </div>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

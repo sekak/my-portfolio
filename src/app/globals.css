@@ -4,16 +4,26 @@
   /* Your default theme */
   --background: white;
   --foreground: black;
+  --secondary: #e3e3e3;
+  --third: #c7c7c7;
 }
 
 [data-theme='dark'] {
   --background: black;
   --foreground: white;
+  --secondary: #121113;
+  --third: #202020;
+}
+
+body{
+  @apply bg-background text-foreground;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-secondary: var(--secondary);
+  --color-third: var(--third);
   --font-sans: var(--font-ibm-plex-sans);
   --font-mono: var(--font-ibm-plex-mono);
   --breakpoint-mobile: 375px;
@@ -29,8 +39,4 @@
 
 .unactive{
   @apply border-b-2 border-transparent;
-}
-
-li{
-  text-decoration: none;
 }

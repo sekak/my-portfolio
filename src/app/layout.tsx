@@ -30,8 +30,10 @@ export default function RootLayout({
           <Navbar />
           <div className="relative">
             <div className="-z-1 absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-blue-900/20 blur-[100px]"/>
+            <div className="-z-1 absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-blue-900/20 blur-[100px]"/>
             <div className="-z-1 absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-blue-900/20 blur-[100px]"/>
-            <div className="p-2 desktop:max-w-[1280px] laptop:max-w-[1024px] tablet:max-w-[768px] mobile:max-w-[375px] mx-auto">
+            <div className="-z-1 absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-blue-900/20 blur-[100px]"/>
+            <div className="p-2 desktop:max-w-[1280px] laptop:max-w-[1024px] tablet:max-w-[768px] mx-auto">
               {children}
             </div>
           </div>

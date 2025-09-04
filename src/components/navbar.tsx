@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import ToggleButton from "./toggleButton";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -33,7 +32,7 @@ function Navbar() {
   return (
     <nav className={`sticky top-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200/20 dark:border-gray-700/20 shadow-lg' 
+        ? 'bg-background/10 backdrop-blur-md border-b border-gray-200/20 dark:border-gray-700/20 ' 
         : 'bg-transparent'
     }`}>
       <div className="max-w-[1500px] mx-auto flex items-center p-6 relative">
@@ -83,7 +82,7 @@ function Navbar() {
               className={`group relative px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 ${
                 pathname === link.href
                   ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20'
-                  : 'text-gray-700 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800/50'
+                  : 'text-forground hover:text-blue-600 dark:hover:text-blue-400 dark:hover:bg-forground'
               }`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
@@ -99,9 +98,7 @@ function Navbar() {
           ))}
           
           {/* Theme toggle with enhanced styling */}
-          <div className="ml-4 p-1 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300">
-            <ToggleButton height="1.5em" width="1.5em" />
-          </div>
+         
         </div>
 
         {/* Mobile menu with improved animations */}
@@ -167,13 +164,7 @@ function Navbar() {
                 ))}
               </div>
 
-              {/* Mobile theme toggle */}
-              <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-                <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-                  <span className="font-semibold text-gray-700 dark:text-gray-300">Theme</span>
-                  <ToggleButton height="1.2em" width="1.2em" />
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>

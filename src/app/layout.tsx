@@ -26,7 +26,10 @@ export default function RootLayout({
       <body
         className={`${ibmPlexMono.variable} antialiased`}
       >
-        <ThemeProvider>
+        <ThemeProvider 
+            defaultTheme="dark"
+            disableTransitionOnChange
+            >
           <Navbar />
           <div className="relative">
             <div className="-z-1 absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-blue-900/20 blur-[100px]"/>
